@@ -3,11 +3,13 @@ import './App.css'
 import Tmdb from './Tmdb';
 import MovieList from './components/MovieList';
 import PrincipalMovie from './components/PrincipalMovie'
+import Header from './components/Header';
 
 export default function App() {
   
   const [movieList, setMovieList] = useState ([]);
   const [principalData, setPrincipalData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false)
 
   useEffect(() => {
     const load = async () => {
@@ -25,9 +27,26 @@ export default function App() {
     load();
   }, [])
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if(window.scrollY > 10) {
+        setBlackHeader(true)
+      } else {
+        setBlackHeader(false)
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener)
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  }, []);
+
   return (
     <div className="page">
-
+      <Header black={blackHeader} />
+      
       {principalData &&
       <PrincipalMovie item={principalData} />}
 
