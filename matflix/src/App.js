@@ -14,6 +14,13 @@ export default function App() {
       // Pegando as listas do Tmdb
       let list = await Tmdb.getPrincipalList();
       setMovieList(list);
+
+      // Pagando o Principal
+      let originals = list.filter(i => i.slug === 'Originals')
+      let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
+      let chosen = originals[0].items.results[randomChosen]
+      let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv')
+      setPrincipalData(chosenInfo);
     }
     load();
   }, [])
