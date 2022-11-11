@@ -55,6 +55,12 @@ export default function App() {
          <MovieList key={key} tittle={item.tittle} items={item.items} />
         ))}
       </section>
+      <footer>
+        Feito com <span role="img" arial-label="coração">❤</span> pelo Dev Matheus Paiva
+        Direitos de Imagem reservados a Netflix
+        Direitos de imagem para o logo reservados a mim
+        Dados pegos do site Themoviedb.org
+      </footer>
     </div>
   )
 }
