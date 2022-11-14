@@ -5,7 +5,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 export default function MovieList({tittle, items}) {
 
-  const [scrollX, setScrollX] = useState(-400)
+  const [scrollX, setScrollX] = useState(0)
 
   const onLeftArrow = () => {
     let x = scrollX + Math.round(window.innerWidth / 2);

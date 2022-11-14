@@ -77,3 +77,27 @@
     font-size: 18px;
     color: #999
 }
+
+@media (max-width:760px) {
+    .principal {
+        height: 105vh;
+    }
+    .principal--name {
+        font-size: 40px;
+    }
+    .principal--info {
+        font-size: 16px;
+    }
+    .principal--overview {
+        font-size: 14px;
+        max-width: 100%;
+        margin-right:30px;
+    }
+    .principal--mylistbutton,
+    .principal--watchbutton {
+        font-size: 16px;
+    }
+    .principal--genres {
+        font-size: 14px;
+    }
+}

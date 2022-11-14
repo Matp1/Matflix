@@ -15,14 +15,14 @@ export default function App() {
     const load = async () => {
       // Pegando as listas do Tmdb
       let list = await Tmdb.getPrincipalList();
-      setMovieList(list);
+       setMovieList(list);
 
       // Pagando o Principal
       let originals = list.filter(i => i.slug === 'Originals')
       let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
       let chosen = originals[0].items.results[randomChosen]
       let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv')
-      setPrincipalData(chosenInfo);
+       setPrincipalData(chosenInfo);
     }
     load();
   }, [])
@@ -61,6 +61,12 @@ export default function App() {
         Direitos de imagem para o logo reservados a mim
         Dados pegos do site Themoviedb.org
       </footer>
+
+          {movieList.length <= 0 && 
+      <div className="loading">
+        <img src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" alt="Carregando" />
+      </div>
+          }
     </div>
   )
 }

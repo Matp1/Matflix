@@ -50,3 +50,10 @@
 .movieList:hover .movieList--rowright {
     opacity: 1;
 }
+
+@media (max-width:760px) {
+    .movieList--rowleft,
+    .movieList--rowright {
+        opacity: 1;
+    }
+}

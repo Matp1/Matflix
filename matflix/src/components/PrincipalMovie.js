@@ -8,6 +8,10 @@ export default function PrincipalMovie({item}) {
     for(let i in item.genres) {
         genres.push( item.genres[i].name )
     }
+    let description = item.overview
+    if(description.length > 200) {
+        description = description.substring(0, 200) + '...'
+    }
 
     return(
         <section className="principal" style={{
@@ -23,7 +27,7 @@ export default function PrincipalMovie({item}) {
                         <div className="principal--year">{firstDate.getFullYear()}</div>
                         <div className="principal--seasons">{item.number_of_seasons} temporada{item.number_of_seasons !== 1 ? 's' : ''}</div>
                         <div className="principal--overview">
-                            {item.overview}
+                            {description}
                         </div>
                         <div className="principal--buttons">
                             <a href={`/watch/${item.id}`} className="principal--watchbutton"> ▶ Assistir</a>
